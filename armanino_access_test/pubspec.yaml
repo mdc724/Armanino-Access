@@ -102,7 +102,7 @@ flutter:
 
 flutter_native_splash:
   color: "#FFFFFF"
-  image: android/app/src/main/res/drawable/gorgosaurus_bw_transparent.png
+  image: android/app/src/main/res/drawable/arm_access_splash_image.png
   android: true
   ios: true
 
