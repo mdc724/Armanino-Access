@@ -2,7 +2,7 @@
     <application
         android:label="armanino_access_test"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/arm_access_launcher">
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
