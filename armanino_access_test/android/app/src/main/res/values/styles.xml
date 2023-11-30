@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non-round icon with background must use reduced size to fit circle -->
+    <!-- Splash icon size - Non-round icon with background must use reduced size to fit circle -->
     <dimen name="splash_screen_icon_height">32dp</dimen>
     <dimen name="splash_screen_icon_width">100dp</dimen>
 
@@ -24,9 +24,9 @@
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+
     <!--Custom Theme for Armanino Access-->
     <style name="ArmaninoAccessTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--Theme.AppCompat.Light.NoActionBar-->
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/launch_background</item>
     </style>
 </resources>

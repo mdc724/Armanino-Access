@@ -14,10 +14,7 @@ void main() {
   );
   
   // Initiate splash screen
-  FlutterNativeSplash(
-    //backgroundColor: Colors.white, // Customize as needed
-    //seconds: 3, // Set the duration of the splash screen
-  );
+  FlutterNativeSplash();
 }
 
 
@@ -29,6 +26,7 @@ class WebViewApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // Once open, this displays persistently at the top
         title: const Text('Armanino Access'),
       ),
       body: const WebViewPage(),

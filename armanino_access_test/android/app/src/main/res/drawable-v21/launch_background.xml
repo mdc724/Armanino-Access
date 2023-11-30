@@ -6,12 +6,8 @@
     </item>
     -->
     
-    <!--
-    <item>
-        <bitmap android:gravity="fill" android:src="@drawable/arm_access_splash_image"/>
-    </item>
-    -->
-
+    
+    
     <item
         android:width="@dimen/splash_screen_icon_width"
         android:height="@dimen/splash_screen_icon_height"
