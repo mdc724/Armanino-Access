@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:105489817418:android:2d4f0c858f49efddd62bb3",
+        "mobilesdk_app_id": "1:105489817418:android:0dc167a942d43dced62bb3",
         "android_client_info": {
-          "package_name": "com.example.armanino_access_test"
+          "package_name": "com.armanino.armanino_access_test"
         }
       },
       "oauth_client": [],

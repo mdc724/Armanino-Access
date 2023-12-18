@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAEKyHpTQBzjNwkUsTeShM6rTKyNcIlK3k',
-    appId: '1:105489817418:android:2d4f0c858f49efddd62bb3',
+    appId: '1:105489817418:android:0dc167a942d43dced62bb3',
     messagingSenderId: '105489817418',
     projectId: 'armanino-access-test',
     storageBucket: 'armanino-access-test.appspot.com',
@@ -59,10 +59,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBRcRUWW3ZJuz_TwkGOzk3S2wcH1epMWLM',
-    appId: '1:105489817418:ios:9c18fcbc4a7d2134d62bb3',
+    appId: '1:105489817418:ios:18b5615a404d2012d62bb3',
     messagingSenderId: '105489817418',
     projectId: 'armanino-access-test',
     storageBucket: 'armanino-access-test.appspot.com',
-    iosBundleId: 'com.example.armaninoAccessTest',
+    iosBundleId: 'com.armanino.armaninoAccessTest',
   );
 }

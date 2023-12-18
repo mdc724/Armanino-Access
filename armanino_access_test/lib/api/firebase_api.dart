@@ -32,6 +32,7 @@ class FirebaseApi {
 
     // Get user's device token to pair the user to the device in ServiceNow
     RegisterDevice.tokenValue = await _firebaseMessaging.getToken();
+    print('Variable Token: ${RegisterDevice.tokenValue}');
 
     // Listen for Firebase Messages
     FirebaseMessaging.instance.getInitialMessage().then(_handleInitialMessage);
@@ -120,7 +121,7 @@ class FirebaseApi {
         "url": "accesstest.armaninollp.com/arm_access?id=project_task_detail&table=customer_project_task&sys_id=d0fe587097847910a59e7f971153afd9"
     },
 
-    "registration_ids":["fgmdHq4USnyOMYUSlwn7eY:APA91bE368hlq3DC2wqCyGCv3TW9gNAjnwcM7CJZMG-tScukX0fxYgQ4W6lS6kAYFd8b9U1rrpEAzyFtVWidfxSNWu2MalA0Jvt9BzWKM5ATDWSzMj3vhGt7v-U5El91U_7PsoSza05n"]
+    "registration_ids":["f2GHEPhKSXyLKMDHMATRWF:APA91bFct1F5q5F1mh70fj7aWFWZmcNq9ZS89N9oTrpqTzRQ8bNz-iPsYvmLAge3MyzMuYOGH5UYTX-kN9xlZPUM8gvk5IWMPJ7cEwlT_6m-3U96thFldNQNZlS6hTnN41rijQWp7w3u"]
 }
 */
 

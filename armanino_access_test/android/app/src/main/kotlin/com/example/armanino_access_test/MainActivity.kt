@@ -1,5 +1,4 @@
-package com.example.armanino_access_test
-//package com.armanino.armaninoaccesstest
+package com.armanino.armanino_access_test
 
 import io.flutter.embedding.android.FlutterActivity
 
