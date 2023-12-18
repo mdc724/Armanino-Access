@@ -7,28 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:105489817418:android:e6d304d847066d6bd62bb3",
+        "mobilesdk_app_id": "1:105489817418:android:2d4f0c858f49efddd62bb3",
         "android_client_info": {
-          "package_name": "com.armanino.armaninoaccesstest"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAEKyHpTQBzjNwkUsTeShM6rTKyNcIlK3k"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:105489817418:android:bb9706bfe7d6f41ed62bb3",
-        "android_client_info": {
-          "package_name": "com.servicenow.public.armaccesstest.requestor"
+          "package_name": "com.example.armanino_access_test"
         }
       },
       "oauth_client": [],

@@ -1,53 +1,126 @@
+// Flutter and Web View components
+import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import '../WebController.dart';
+
+// Firebase components
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+// Device Registration components
+import 'RegisterDevice.dart';
 
 
+
+// Global key to access the context and WebView controller
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+
+
+// Initialize Firebase Messaging components
 class FirebaseApi {
-  // create an instance of Firebase Messaging
+
+  // Get Firebase Messaging instance
   final _firebaseMessaging = FirebaseMessaging.instance;
 
-  // function to initialize notifications
+
+  
+  // Initialize push notifications
   Future<void> initNotifications() async {
-    // request permission from user (will prompt user)
+    
+    // Request permission from user to issue Firebase notifications
     await _firebaseMessaging.requestPermission();
 
-    // fetch the FCM token for this device
-    final fCMToken = await _firebaseMessaging.getToken();
+    // Get user's device token to pair the user to the device in ServiceNow
+    RegisterDevice.tokenValue = await _firebaseMessaging.getToken();
 
-    // print the token (normally you would send this to your server)
-    print('Token: $fCMToken');
-
-    // function to handle received messages
-
-    // function to initialize foreground and background settings
+    // Listen for Firebase Messages
+    FirebaseMessaging.instance.getInitialMessage().then(_handleInitialMessage);
+    FirebaseMessaging.onMessage.listen(_handleForegroundMessage);
+    FirebaseMessaging.onMessageOpenedApp.listen(_handleOpenMessage);
   }
-}
+
+
+
+  // Handle message for app when app is in a terminated state
+  void _handleInitialMessage(RemoteMessage? message) async {
+    print("_handleInitialMessage triggered");
+  }
+
+
+  // Handle message for app when app is opened
+  void _handleForegroundMessage(RemoteMessage? message) async {
+    print("_handleForegroundMessage triggered");
+  }
+
+
+  // Handle opening action of a message when app is in the background
+  void _handleOpenMessage(RemoteMessage? message) async {
+    print("_handleOpenMessage triggered");
+
+    
+    // If message is null, escape function
+    if (message == null) {
+      return;
+    }
+
+
+    // Create JSON object for parsing
+    Map<String, dynamic> jsonData = {
+      'notification': message.notification,
+      'data': message.data   
+    };
+
+
+    // If JSON data is not empty
+    if (jsonData['data'] != null) {
+      String url = jsonData['data']['url'];
+      if (url.isNotEmpty) {
+
+        // Launch in web view
+        _openUrlInWebView(url); // navigatorKey
+      }
+    }
+  }
+
+
+
+  // Open notifications in the app's web view with the URL provided
+  void _openUrlInWebView(String URL) {
+
+      // Prefix the URL with https://
+      //URL = "https://" + URL;
+
+      // Use the provided InAppWebViewController to navigate to the new URL
+      WebController.controller?.loadUrl(urlRequest: URLRequest(url: Uri.parse(URL)));
+    }
+  }
+
+
+
+
+
 
 
 
 
 /*
-import 'package:firebase_messaging/firebase_messaging.dart';
+// CORRECT SAMPLE NOTIFICATION - ensures the app can be properly opened to the right context URL
 
-class MyFirebaseMessagingService {
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+{  
+    "notification": {
+        "title": "Schedule client meeting",
+        "body": "Project Task Assignment:  Schedule client meeting\r\n\r\nTask Number: CSPRJTASK0068402\r\nSummary: Schedule client meeting\r\nAssigned to: Mike Cornell\r\nAdditional Assignee List:  Mike Cornell"
+    },
 
-  void initialize() {
-    _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print("onMessage: $message");
-        // Handle the incoming message when the app is in the foreground.
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        print("onLaunch: $message");
-        // Handle the notification when the app is launched from a terminated state.
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print("onResume: $message");
-        // Handle the notification when the app is resumed from the background.
-      },
-    );
-  }
+    "data": {
+        "click_action": "FLUTTER_NOTIFICATION_CLICK",
+        "sound": "default", 
+        "status": "done",
+        "screen": "screenA",
+        "url": "accesstest.armaninollp.com/arm_access?id=project_task_detail&table=customer_project_task&sys_id=d0fe587097847910a59e7f971153afd9"
+    },
+
+    "registration_ids":["fgmdHq4USnyOMYUSlwn7eY:APA91bE368hlq3DC2wqCyGCv3TW9gNAjnwcM7CJZMG-tScukX0fxYgQ4W6lS6kAYFd8b9U1rrpEAzyFtVWidfxSNWu2MalA0Jvt9BzWKM5ATDWSzMj3vhGt7v-U5El91U_7PsoSza05n"]
 }
 */
 
