@@ -1,6 +1,7 @@
 // Dart Components
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 // Flutter and Web View components
 import 'package:flutter/material.dart';
@@ -178,9 +179,12 @@ class _WebViewPageState extends State<WebViewPage> {
           // Print final token and email values
           print('Variable Token: ${RegisterDevice.tokenValue}');
           print('Variable Email: ${RegisterDevice.emailValue}');
+          print('Variable Android: ${Platform.isAndroid}');
+          print('Variable iOS: ${Platform.isIOS}');
 
           // Call sendData function with updated values
-          await sendData(RegisterDevice.tokenValue, RegisterDevice.emailValue);
+          await sendData(RegisterDevice.tokenValue, RegisterDevice.emailValue,
+                         Platform.isAndroid, Platform.isIOS);
         }
       });
     }
@@ -191,12 +195,14 @@ class _WebViewPageState extends State<WebViewPage> {
 
 
   // Send data to custom ServiceNow "Register Mobile Device" API
-  Future<void> sendData(String? tokenValue, String? emailValue) async {
+  Future<void> sendData(String? tokenValue, String? emailValue, bool? isAndroid, bool?isIOS) async {
 
     // Replace this with your actual JSON data
     Map<String, dynamic> jsonData = {
       'Token': tokenValue,
       'Email': emailValue,
+      'isAndroid': isAndroid,
+      'isIOS': isIOS
     };
 
     // TODO:: Update with Mobile Device Registration REST API
