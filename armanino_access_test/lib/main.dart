@@ -11,7 +11,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 // Firebase components
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:armanino_access_test/api/firebase_api.dart';
+import 'package:armanino_access_test/api/firebase_api.dart'; // TODO:: Update with Proper App Package Reference
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 // Device Registration components
@@ -76,6 +76,7 @@ class WebViewApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // TODO:: Update with Application Title
         title: const Text('Armanino Access'),
       ),
       body: const WebViewPage(),
@@ -107,7 +108,7 @@ class _WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     return InAppWebView(
       initialUrlRequest: URLRequest(
-        // TODO:: Update in Test and Prod release packages
+        // TODO:: Update with Initial Load Destination URL
         url: Uri.parse('https://accesstest.armaninollp.com/arm_access'),
       ),
       initialOptions: InAppWebViewGroupOptions(
@@ -203,11 +204,11 @@ class _WebViewPageState extends State<WebViewPage> {
       'Email': emailValue,
     };
 
-    // TODO:: Update in Test and Prod release packages
+    // TODO:: Update with Mobile Device Registration REST API
     final url = Uri.parse('https://armaninollptest.service-now.com/api/arman/register_mobile_device/register');
 
 
-    // Replace 'your_username' and 'your_password' with your actual credentials
+    // TODO:: Replace 'your_username' and 'your_password' with your actual credentials
     final String basicAuth =
         'Basic ' + base64Encode(utf8.encode('svc.firebasemessaging::@>L)z(s^23?@(xi3q#)cSKu'));
 
