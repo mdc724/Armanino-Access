@@ -21,7 +21,6 @@ dependencies {
 
 
   // Add the dependency for Firebase Cloud Messaging
-  //implementation 'com.google.firebase:firebase-messaging:24.0.0'
   implementation 'com.google.firebase:firebase-messaging:23.4.0'
 
 
