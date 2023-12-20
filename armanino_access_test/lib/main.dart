@@ -141,8 +141,8 @@ class _WebViewPageState extends State<WebViewPage> {
   Future<void> _extractValue() async {
     if (_controller != null) {
       // Initialize extractedValue and inputComplete outside the JavaScript block
-      //String? emailInput = "";
-      //bool inputComplete = false;
+      String? emailInput = "";
+      bool inputComplete = false;
 
       print("_extractValue");
 
