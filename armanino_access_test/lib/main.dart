@@ -141,10 +141,9 @@ class _WebViewPageState extends State<WebViewPage> {
   Future<void> _extractValue() async {
     if (_controller != null) {
       // Initialize extractedValue and inputComplete outside the JavaScript block
-      String? emailInput = "";
-      bool inputComplete = false;
+      //String? emailInput = "";
+      //bool inputComplete = false;
 
-      print("_extractValue");
 
       // Interact with the web application via JavaScript
       await _controller!.evaluateJavascript(source: '''
@@ -166,8 +165,6 @@ class _WebViewPageState extends State<WebViewPage> {
       // Create a periodic timer that prints extractedValue every 2 seconds
       Timer.periodic(Duration(seconds: 1), (Timer timer) async {
 
-        print("Timer");
-
         // Retrieve the updated value using evaluateJavascript
         String? updatedValue = await _controller!.evaluateJavascript(
           source: "document.getElementById('okta-signin-username').value;",
@@ -177,6 +174,8 @@ class _WebViewPageState extends State<WebViewPage> {
         bool? completedValue = await _controller!.evaluateJavascript(
           source: "inputComplete",
         );
+
+        print('$updatedValue - $completedValue');
 
         // Check if the value has changed before printing
         if (updatedValue != RegisterDevice.emailValue && completedValue == true) {
