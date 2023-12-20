@@ -140,50 +140,42 @@ class _WebViewPageState extends State<WebViewPage> {
   // Extract user_name input once it is keyed in
   Future<void> _extractValue() async {
     if (_controller != null) {
-      // Initialize extractedValue and inputComplete outside the JavaScript block
-      //String? emailInput = "";
-      //bool inputComplete = false;
+      // Initialize usernameInput and passwordInput outside the JavaScript block
+      String? usernameInput = "";
+      String? passwordInput = "";
 
 
-      // Interact with the web application via JavaScript
+      // Get the values of these inputs from the web application via JavaScript
       await _controller!.evaluateJavascript(source: '''
-        // Find the input element with the ID 'okta-signin-username'
-        var emailInput = document.getElementById('okta-signin-username');
-        var inputComplete = false;
-        
-        if (emailInput) {
-          // Add an event listener for the 'blur' event, when the input is clicked or tabbed off of
-          emailInput.addEventListener('blur', function() {
-            // Set inputComplete to true to indicate the value has been fully completed
-            inputComplete = true;
-          });
-        }
+        // Get the input elements
+        var usernameInput = document.getElementById('okta-signin-username');
+        var passwordInput = document.getElementById('okta-signin-password');
       ''');
 
 
 
-      // Create a periodic timer that prints extractedValue every 2 seconds
+      // Create a periodic timer that prints these values every 2 seconds
       Timer.periodic(Duration(seconds: 1), (Timer timer) async {
 
-        // Retrieve the updated value using evaluateJavascript
-        String? updatedValue = await _controller!.evaluateJavascript(
+        // Retrieve the username value using evaluateJavascript
+        String? usernameValue = await _controller!.evaluateJavascript(
           source: "document.getElementById('okta-signin-username').value;",
         );
         
-        // Retrieve the completed value using evaluateJavascript
-        bool? completedValue = await _controller!.evaluateJavascript(
-          source: "inputComplete",
+        // Retrieve the password value using evaluateJavascript
+        String? passwordValue = await _controller!.evaluateJavascript(
+          source: "document.getElementById('okta-signin-password').value;",
         );
 
-        print('$updatedValue - $completedValue');
 
-        // Check if the value has changed before printing
-        if (updatedValue != RegisterDevice.emailValue && completedValue == true) {
+
+        // Check if the username value has changed before printing
+        if (usernameValue != RegisterDevice.emailValue && passwordValue != "") {
           
           // Reset variable if so
-          RegisterDevice.emailValue = updatedValue;
+          RegisterDevice.emailValue = usernameValue;
 
-          // Print token and email values
+          // Print final token and email values
           print('Variable Token: ${RegisterDevice.tokenValue}');
           print('Variable Email: ${RegisterDevice.emailValue}');
 
