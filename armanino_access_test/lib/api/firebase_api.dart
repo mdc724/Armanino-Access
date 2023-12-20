@@ -88,8 +88,8 @@ class FirebaseApi {
   // Open notifications in the app's web view with the URL provided
   void _openUrlInWebView(String URL) {
 
-      // Prefix the URL with https://
-      //URL = "https://" + URL;
+      // Prefix the URL with https:// - works better for Apple devices
+      URL = "https://$URL";
 
       // Use the provided InAppWebViewController to navigate to the new URL
       WebController.controller?.loadUrl(urlRequest: URLRequest(url: Uri.parse(URL)));
