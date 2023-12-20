@@ -121,7 +121,7 @@ class FirebaseApi {
         "url": "accesstest.armaninollp.com/arm_access?id=project_task_detail&table=customer_project_task&sys_id=d0fe587097847910a59e7f971153afd9"
     },
 
-    "registration_ids":["f2GHEPhKSXyLKMDHMATRWF:APA91bFct1F5q5F1mh70fj7aWFWZmcNq9ZS89N9oTrpqTzRQ8bNz-iPsYvmLAge3MyzMuYOGH5UYTX-kN9xlZPUM8gvk5IWMPJ7cEwlT_6m-3U96thFldNQNZlS6hTnN41rijQWp7w3u"]
+    "registration_ids":["f2GHEPhKSXyLKMDHMATRWF:APA91bFct1F5q5F1mh70fj7aWFWZmcNq9ZS89N9oTrpqTzRQ8bNz-iPsYvmLAge3MyzMuYOGH5UYTX-kN9xlZPUM8gvk5IWMPJ7cEwlT_6m-3U96thFldNQNZlS6hTnN41rijQWp7w3u", "dMS-Ltr5UU6LjwgJ_2BNsb:APA91bE8uh_z1Kli-W0Df1JEUbSZxup8R2kGI8Q_tO3v6hljryyUSUhw82ml2eIcOXNYuXNLXLdnuQnE-pxxvJ7G6pX-JtTdlmx3_FYCfkE3pLbFllmE2VLxfzX0wAGLrgGd107oFLG0"]
 }
 */
 

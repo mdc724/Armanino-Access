@@ -144,6 +144,8 @@ class _WebViewPageState extends State<WebViewPage> {
       //String? emailInput = "";
       //bool inputComplete = false;
 
+      print("_extractValue");
+
       // Interact with the web application via JavaScript
       await _controller!.evaluateJavascript(source: '''
         // Find the input element with the ID 'okta-signin-username'
@@ -163,6 +165,8 @@ class _WebViewPageState extends State<WebViewPage> {
 
       // Create a periodic timer that prints extractedValue every 2 seconds
       Timer.periodic(Duration(seconds: 1), (Timer timer) async {
+
+        print("Timer");
 
         // Retrieve the updated value using evaluateJavascript
         String? updatedValue = await _controller!.evaluateJavascript(
